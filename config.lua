@@ -16,3 +16,7 @@ Config.Button = {
     Time = 6000,
     NoVeh = "You are too far"
 }
+
+Config.minigame = {
+    minigames = "none", -- ps-ui/none
+}
