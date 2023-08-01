@@ -1,10 +1,10 @@
 Config = {}
 
-QBCore = exports['qb-core']:GetCoreObject()  -- comment if you use QBCore
+-- QBCore = exports['qb-core']:GetCoreObject()  -- uncomment if you use QBCore
 -- ESX = exports["es_extended"]:getSharedObject() -- uncomment if you use ESX
 
 Config.Settings = {
-    Framework = "", -- ST/QB/ESX
+    Framework = "ST", -- ST/QB/ESX
     Command = "repair", -- Will be used if Framework is set to ST
     Distance = 4.0
 }
