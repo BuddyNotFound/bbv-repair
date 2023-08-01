@@ -14,14 +14,22 @@ RegisterNetEvent('bbv-repair:usekit',function()
 end)
 
 RegisterNetEvent('bbv-repair:repair',function()
-    Wrapper:RemoveItem('repairkit',1)
-    SetVehicleEngineHealth(Main.veh, 1000)
-    SetVehicleEngineOn( Main.veh, true, true )
-    SetVehicleFixed(Main.veh)
-
-    RenderScriptCams(false, 1, 1500,  false,  false)
-
-    Main.veh = nil
+	exports['ps-ui']:Circle(function(success)
+		if success then
+			print("sucess")
+			Wrapper:RemoveItem('repairkit',1)
+			SetVehicleEngineHealth(Main.veh, 1000)
+			SetVehicleEngineOn( Main.veh, true, true )
+			SetVehicleFixed(Main.veh)
+		
+			RenderScriptCams(false, 1, 1500,  false,  false)
+		
+			Main.veh = nil
+		else
+			print("you have failed loser")
+			--Dont know your notify put what you want
+		end
+	end, 5, 12)
 end)
 
 function Main:RepairCam()
