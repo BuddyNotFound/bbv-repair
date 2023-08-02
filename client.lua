@@ -24,6 +24,27 @@ RegisterNetEvent('bbv-repair:repair',function()
     Main.veh = nil
 end)
 
+if Config.minigame.minigames == "ps-ui" then
+	RegisterNetEvent('bbv-repair:repair',function()
+		exports['ps-ui']:Circle(function(success)
+			if success then
+				print("sucess")
+				Wrapper:RemoveItem('repairkit',1)
+				SetVehicleEngineHealth(Main.veh, 1000)
+				SetVehicleEngineOn( Main.veh, true, true )
+				SetVehicleFixed(Main.veh)
+			
+				RenderScriptCams(false, 1, 1500,  false,  false)
+			
+				Main.veh = nil
+			else
+				print("you have failed loser")
+				--Dont know your notify put what you want
+			end
+		end, 5, 12)
+	end)
+end
+
 function Main:RepairCam()
     Main.Cam = CreateCam("DEFAULT_SCRIPTED_CAMERA", 1)
     RenderScriptCams(true, 1, 1500,  true,  true)
