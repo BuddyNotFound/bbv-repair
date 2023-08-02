@@ -16,3 +16,7 @@ https://streamable.com/aucuwu
 > Discord
 
 http://discord.bbv.world
+
+Credits:
+
+rony.251 - ps-ui support
