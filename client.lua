@@ -13,16 +13,18 @@ RegisterNetEvent('bbv-repair:usekit',function()
     end
 end)
 
-RegisterNetEvent('bbv-repair:repair',function()
-    Wrapper:RemoveItem('repairkit',1)
-    SetVehicleEngineHealth(Main.veh, 1000)
-    SetVehicleEngineOn( Main.veh, true, true )
-    SetVehicleFixed(Main.veh)
-
-    RenderScriptCams(false, 1, 1500,  false,  false)
-
-    Main.veh = nil
-end)
+if Config.minigame.minigames == "none" then
+	RegisterNetEvent('bbv-repair:repair',function()
+	    Wrapper:RemoveItem('repairkit',1)
+	    SetVehicleEngineHealth(Main.veh, 1000)
+	    SetVehicleEngineOn( Main.veh, true, true )
+	    SetVehicleFixed(Main.veh)
+	
+	    RenderScriptCams(false, 1, 1500,  false,  false)
+	
+	    Main.veh = nil
+	end)
+end
 
 if Config.minigame.minigames == "ps-ui" then
 	RegisterNetEvent('bbv-repair:repair',function()
