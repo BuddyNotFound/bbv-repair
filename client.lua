@@ -19,9 +19,7 @@ if Config.minigame.minigames == "none" then
 	    SetVehicleEngineHealth(Main.veh, 1000)
 	    SetVehicleEngineOn( Main.veh, true, true )
 	    SetVehicleFixed(Main.veh)
-	
 	    RenderScriptCams(false, 1, 1500,  false,  false)
-	
 	    Main.veh = nil
 	end)
 end
@@ -35,13 +33,10 @@ if Config.minigame.minigames == "ps-ui" then
 				SetVehicleEngineHealth(Main.veh, 1000)
 				SetVehicleEngineOn( Main.veh, true, true )
 				SetVehicleFixed(Main.veh)
-			
 				RenderScriptCams(false, 1, 1500,  false,  false)
-			
 				Main.veh = nil
 			else
-				print("you have failed loser")
-				--Dont know your notify put what you want
+				Wrapper:Notify("You Failed")
 			end
 		end, 5, 12)
 	end)
