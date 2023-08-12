@@ -2,6 +2,15 @@ Main = {
     ped = PlayerPedId
 }
 
+RegisterNetEvent('bbv-repair:start', function()
+    if Config.minigame.minigames == "ps" then
+        Psui()
+    elseif Config.minigame.minigames == "none" then
+        nominigame()
+    end
+end)
+
+
 RegisterNetEvent('bbv-repair:usekit',function()
 	if not IsPedInAnyVehicle(PlayerPedId()) then return end
     local ped = Main.ped()
@@ -14,33 +23,29 @@ RegisterNetEvent('bbv-repair:usekit',function()
     end
 end)
 
-if Config.minigame.minigames == "none" then
-	RegisterNetEvent('bbv-repair:repair',function()
-	    Wrapper:RemoveItem('repairkit',1)
-	    SetVehicleEngineHealth(Main.veh, 1000)
-	    SetVehicleEngineOn( Main.veh, true, true )
-	    SetVehicleFixed(Main.veh)
-	    RenderScriptCams(false, 1, 1500,  false,  false)
-	    Main.veh = nil
-	end)
+nominigame = function ()
+    Wrapper:RemoveItem('repairkit',1)
+    SetVehicleEngineHealth(Main.veh, 1000)
+    SetVehicleEngineOn( Main.veh, true, true )
+    SetVehicleFixed(Main.veh)
+    RenderScriptCams(false, 1, 1500,  false,  false)
+    Main.veh = nil
 end
 
-if Config.minigame.minigames == "ps-ui" then
-	RegisterNetEvent('bbv-repair:repair',function()
-		exports['ps-ui']:Circle(function(success)
-			if success then
-				print("sucess")
-				Wrapper:RemoveItem('repairkit',1)
-				SetVehicleEngineHealth(Main.veh, 1000)
-				SetVehicleEngineOn( Main.veh, true, true )
-				SetVehicleFixed(Main.veh)
-				RenderScriptCams(false, 1, 1500,  false,  false)
-				Main.veh = nil
-			else
-				Wrapper:Notify("You Failed")
-			end
-		end, 5, 12)
-	end)
+Psui() = function ()
+	exports['ps-ui']:Circle(function(success)
+		if success then
+			print("sucess")
+			Wrapper:RemoveItem('repairkit',1)
+			SetVehicleEngineHealth(Main.veh, 1000)
+			SetVehicleEngineOn( Main.veh, true, true )
+			SetVehicleFixed(Main.veh)
+			RenderScriptCams(false, 1, 1500,  false,  false)
+			Main.veh = nil
+		else
+			Wrapper:Notify("You Failed")
+		end
+	end, 5, 12)
 end
 
 function Main:RepairCam()
