@@ -181,7 +181,9 @@ function Wrapper:AddItem(item,amount) -- AddItem to me (Like give item) very uns
 end
 
 function Wrapper:RemoveItem(item,amount)
-    TriggerServerEvent(Wrapper.resname.."Wrapper2:RemoveItem", item, amount)
+    if Config.Settings.Framework ~= "ST" then 
+        TriggerServerEvent(Wrapper.resname.."Wrapper2:RemoveItem", item, amount)
+    end
 end
 
 function Wrapper:AddMoney(type,amount) -- AddItem to me (Like give item) very unsafe use only in dev build.

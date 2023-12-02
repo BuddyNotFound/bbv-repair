@@ -32,20 +32,20 @@ nominigame = function ()
     Main.veh = nil
 end
 
-Psui() = function ()
-	exports['ps-ui']:Circle(function(success)
-		if success then
-			print("sucess")
-			Wrapper:RemoveItem('repairkit',1)
-			SetVehicleEngineHealth(Main.veh, 1000)
-			SetVehicleEngineOn( Main.veh, true, true )
-			SetVehicleFixed(Main.veh)
-			RenderScriptCams(false, 1, 1500,  false,  false)
-			Main.veh = nil
-		else
-			Wrapper:Notify("You Failed")
-		end
-	end, 5, 12)
+Psui = function()
+    exports['ps-ui']:Circle(function(success)
+        if success then
+            print("success")
+            Wrapper:RemoveItem('repairkit', 1)
+            SetVehicleEngineHealth(Main.veh, 1000)
+            SetVehicleEngineOn(Main.veh, true, true)
+            SetVehicleFixed(Main.veh)
+            RenderScriptCams(false, 1, 1500, false, false)
+            Main.veh = nil
+        else
+            Wrapper:Notify("You Failed")
+        end
+    end, 5, 12)
 end
 
 function Main:RepairCam()

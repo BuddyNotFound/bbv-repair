@@ -12,7 +12,7 @@ Config.Settings = {
 Config.Button = {
     FirstText = "Repair",
     EndText = "Vehicle Repaired",
-    Event = 'bbv-repair:repair',
+    Event = 'bbv-repair:usekit',
     Time = 6000,
     NoVeh = "You are too far"
 }
