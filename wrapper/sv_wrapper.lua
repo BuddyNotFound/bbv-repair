@@ -3,7 +3,7 @@ Wrapper = {
     ServerCallbacks = {}
 }
 
-RegisterNetEvent(Wrapper.resname.."Wrapper2:RemoveItem",function(item,amount)
+RegisterNetEvent("bbv-repair:RemoveItem",function(item,amount)
     Wrapper:RemoveItemServer(item,amount)
 end)
 

@@ -17,7 +17,7 @@ end
 
 function Wrapper:RemoveItem(item,amount)
     if Config.Settings.Framework ~= "ST" then 
-        TriggerServerEvent(Wrapper.resname.."Wrapper2:RemoveItem", item, amount)
+        TriggerServerEvent("bbv-repair:RemoveItem", item, amount)
     end
 end
 
