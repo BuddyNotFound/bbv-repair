@@ -3,6 +3,7 @@ Main = {
 }
 
 RegisterNetEvent('bbv-repair:usekit',function()
+    if IsPedInAnyVehicle(PlayerPedId(), true) then Wrapper:Notify('You need to exit the car first') return end
     local ped = Main.ped()
     local ped_pos = GetEntityCoords(ped)
     Main.veh,Main.dist = Wrapper:GetClosesVeh(ped_pos)

@@ -1,5 +1,7 @@
 Config = {}
 
+-- You will need this of the button -> https://forum.cfx.re/t/free-interact-button/5152798/
+
 -- QBCore = exports['qb-core']:GetCoreObject()  -- uncomment if you use QBCore
 -- ESX = exports["es_extended"]:getSharedObject() -- uncomment if you use ESX
 
