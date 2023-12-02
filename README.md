@@ -17,12 +17,3 @@ https://streamable.com/aucuwu
 
 http://discord.bbv.world
 
-Credits:
-
-rony.251 - ps-ui minigame support
-
-`
-Config.minigame = {
-    minigames = "none", -- ps-ui/none
-}
-`
