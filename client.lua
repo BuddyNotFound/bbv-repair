@@ -2,15 +2,6 @@ Main = {
     ped = PlayerPedId
 }
 
-RegisterNetEvent('bbv-repair:start', function()
-    if Config.minigame.minigames == "ps" then
-        Psui()
-    elseif Config.minigame.minigames == "none" then
-        nominigame()
-    end
-end)
-
-
 RegisterNetEvent('bbv-repair:usekit',function()
     local ped = Main.ped()
     local ped_pos = GetEntityCoords(ped)
@@ -21,31 +12,6 @@ RegisterNetEvent('bbv-repair:usekit',function()
         Wrapper:Notify(Config.Button.NoVeh,'error',6000)
     end
 end)
-
-nominigame = function ()
-    Wrapper:RemoveItem('repairkit',1)
-    SetVehicleEngineHealth(Main.veh, 1000)
-    SetVehicleEngineOn( Main.veh, true, true )
-    SetVehicleFixed(Main.veh)
-    RenderScriptCams(false, 1, 1500,  false,  false)
-    Main.veh = nil
-end
-
-Psui = function()
-    exports['ps-ui']:Circle(function(success)
-        if success then
-            print("success")
-            Wrapper:RemoveItem('repairkit', 1)
-            SetVehicleEngineHealth(Main.veh, 1000)
-            SetVehicleEngineOn(Main.veh, true, true)
-            SetVehicleFixed(Main.veh)
-            RenderScriptCams(false, 1, 1500, false, false)
-            Main.veh = nil
-        else
-            Wrapper:Notify("You Failed")
-        end
-    end, 5, 12)
-end
 
 function Main:RepairCam()
     Main.Cam = CreateCam("DEFAULT_SCRIPTED_CAMERA", 1)
