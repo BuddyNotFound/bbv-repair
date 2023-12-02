@@ -44,3 +44,12 @@ RegisterCommand(Config.Settings.Command, function()
         TriggerEvent('bbv-repair:usekit')
     end
 end)
+
+RegisterNetEvent('bbv-repair:repair',function()
+    Wrapper:RemoveItem('repairkit',1)
+    SetVehicleEngineHealth(Main.veh, 1000)
+    SetVehicleEngineOn( Main.veh, true, true )
+    SetVehicleFixed(Main.veh)
+    RenderScriptCams(false, 1, 1500,  false,  false)
+    Main.veh = nil
+end)
