@@ -6,6 +6,7 @@ Config = {}
 Config.Settings = {
     Framework = "ST", -- ST/QB/ESX
     Command = "repair", -- Will be used if Framework is set to ST
+    ItemName = "repairkit" -- Will be used if Framework is set to QB/ESX
     Distance = 4.0
 }
 

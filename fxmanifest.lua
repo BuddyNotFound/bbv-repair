@@ -18,7 +18,6 @@ server_scripts {
 
 shared_scripts {
     'config.lua',
-    'Lang.lua'
 }
 
 lua54 'yes'

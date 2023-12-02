@@ -46,7 +46,7 @@ RegisterCommand(Config.Settings.Command, function()
 end)
 
 RegisterNetEvent('bbv-repair:repair',function()
-    Wrapper:RemoveItem('repairkit',1)
+    Wrapper:RemoveItem(Config.Settings.ItemName,1)
     SetVehicleEngineHealth(Main.veh, 1000)
     SetVehicleEngineOn( Main.veh, true, true )
     SetVehicleFixed(Main.veh)
