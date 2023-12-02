@@ -12,7 +12,6 @@ end)
 
 
 RegisterNetEvent('bbv-repair:usekit',function()
-	if not IsPedInAnyVehicle(PlayerPedId()) then return end
     local ped = Main.ped()
     local ped_pos = GetEntityCoords(ped)
     Main.veh,Main.dist = Wrapper:GetClosesVeh(ped_pos)
